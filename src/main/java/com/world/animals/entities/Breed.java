@@ -7,11 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 @Table(name="RAZA")
 public class Breed {
@@ -31,6 +27,46 @@ public class Breed {
 	private String caracteristica;
 	
 	@Column(name="PESO")
-	private String peso;	
+	private String peso;
+
+	public Long getIdRaza() {
+		return idRaza;
+	}
+
+	public void setIdRaza(Long idRaza) {
+		this.idRaza = idRaza;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getCaracteristica() {
+		return caracteristica;
+	}
+
+	public void setCaracteristica(String caracteristica) {
+		this.caracteristica = caracteristica;
+	}
+
+	public String getPeso() {
+		return peso;
+	}
+
+	public void setPeso(String peso) {
+		this.peso = peso;
+	}	
 	
 }
