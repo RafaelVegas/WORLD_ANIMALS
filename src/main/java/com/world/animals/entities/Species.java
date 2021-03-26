@@ -6,23 +6,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
-@Table(name="RAZA")
-public class Raza {
-	
+@Table(name="ESPECIE")
+public class Species {
+
 	@Id
-	@Column(name="IDRAZA")
+	@Column(name="NOMBRE")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idRaza;
-	
-	@Column
 	private String nombre;
 	
-	private String color;
-	
+	@Column(name="CARACTERISTICA")
 	private String caracteristica;
-	
-	private String peso;	
 	
 }
