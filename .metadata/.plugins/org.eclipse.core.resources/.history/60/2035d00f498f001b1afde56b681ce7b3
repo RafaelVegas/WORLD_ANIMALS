@@ -1,0 +1,50 @@
+package com.example.demo.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CONTINENTE")
+public class Continente {
+
+	@Id
+	@Column(name="IDCONTINENTE",unique = true,nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idContinente;
+	
+	@Column(name="NOMBRE")
+	private String nombre;
+	
+	@Column(name="ZONA")
+	private String zona;
+
+	public Integer getIdContinente() {
+		return idContinente;
+	}
+
+	public void setIdContinente(Integer idContinente) {
+		this.idContinente = idContinente;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getZona() {
+		return zona;
+	}
+
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
+	
+	
+}

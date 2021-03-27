@@ -1,0 +1,8 @@
+package com.example.demo.services;
+
+import com.example.demo.jsons.ContinenteRest;
+
+public interface ContinenteService {
+
+	public ContinenteRest getContinenteById(Long idContinente) throws Exception;
+}
