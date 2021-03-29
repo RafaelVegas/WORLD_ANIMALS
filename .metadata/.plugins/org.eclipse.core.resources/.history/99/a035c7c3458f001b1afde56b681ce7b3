@@ -1,0 +1,27 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.jsons.ContinenteRest;
+import com.example.demo.responses.WorldAnimalResponse;
+import com.example.demo.services.impl.ContinenteServiceImpl;
+
+@RestController
+@RequestMapping("/demo" + "/V1.0")
+public class ContinenteController {
+
+	@Autowired
+	ContinenteServiceImpl continenteServiceImpl;
+	
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "continente-id"+"/{"+"idContinente"+"}",produces = MediaType.APPLICATION_JSON_VALUE,method = RequestMethod.GET)
+	public WorldAnimalResponse<ContinenteRest> getContinenteById(Long idContinente) {
+		return new WorldAnimalResponse<>("","","",getContinenteById(idContinente));
+	}
+}

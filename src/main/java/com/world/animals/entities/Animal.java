@@ -7,11 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 @Entity
 @Table(name="ANIMAL")
 public class Animal {
@@ -32,5 +27,46 @@ public class Animal {
 	
 	@Column(name="VIDA_MEDIA")
 	private String vidaMedia;
+
+	public Long getIdAnimal() {
+		return idAnimal;
+	}
+
+	public void setIdAnimal(Long idAnimal) {
+		this.idAnimal = idAnimal;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getPropiedad() {
+		return propiedad;
+	}
+
+	public void setPropiedad(String propiedad) {
+		this.propiedad = propiedad;
+	}
+
+	public boolean isDomestico() {
+		return domestico;
+	}
+
+	public void setDomestico(boolean domestico) {
+		this.domestico = domestico;
+	}
+
+	public String getVidaMedia() {
+		return vidaMedia;
+	}
+
+	public void setVidaMedia(String vidaMedia) {
+		this.vidaMedia = vidaMedia;
+	}
+	
 	
 }

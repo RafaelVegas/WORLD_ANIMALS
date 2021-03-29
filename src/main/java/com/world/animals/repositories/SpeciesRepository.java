@@ -1,17 +1,15 @@
 package com.world.animals.repositories;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.world.animals.entities.Species;
 
-public interface SpeciesRepository extends JpaRepository<Species, String>{
+@Repository
+public interface SpeciesRepository extends JpaRepository<Species, Long>{
 
-	Optional<Species> getSpeciesByName(String nameSpecies);
+	Optional<Species> findByIdEspecie(Long idEspecie);
 	
-	@Query("SELECT SPEC FROM ESPECIE SPEC")
-	public List<Species> getAllSpecies();
 }

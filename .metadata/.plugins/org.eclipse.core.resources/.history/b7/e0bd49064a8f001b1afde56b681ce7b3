@@ -1,0 +1,11 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.jsons.ContinenteRest;
+
+@Service
+public interface ContinenteService {
+
+	public ContinenteRest getContinenteById(Long idContinente) throws Exception;
+}
