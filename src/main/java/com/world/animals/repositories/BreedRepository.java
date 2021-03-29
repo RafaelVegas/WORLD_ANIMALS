@@ -10,5 +10,5 @@ import com.world.animals.entities.Breed;
 @Repository
 public interface BreedRepository extends JpaRepository<Breed, Long> {
 
-	Optional<Breed> getBreedById(Long id);
+	Optional<Breed> getByIdRaza(Long id);
 }
