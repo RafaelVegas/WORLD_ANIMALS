@@ -1,18 +1,23 @@
 package com.world.animals.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ANIMAL")
 public class Animal {
 
+
 	@Id
-	@Column(name="IDANIMAL")
+	@Column(name="ID_ANIMAL")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idAnimal;
 	
@@ -23,10 +28,14 @@ public class Animal {
 	private String propiedad;
 	
 	@Column(name="DOMESTICO")
-	private boolean domestico;
+	private boolean domestico;	
 	
 	@Column(name="VIDA_MEDIA")
-	private String vidaMedia;
+	private Long vidaMedia;
+	
+	@JoinColumn(name = "ID_ESPECIE",nullable = false,unique = true,insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)	
+	private Species specie;
 
 	public Long getIdAnimal() {
 		return idAnimal;
@@ -60,13 +69,20 @@ public class Animal {
 		this.domestico = domestico;
 	}
 
-	public String getVidaMedia() {
+	public Long getVidaMedia() {
 		return vidaMedia;
 	}
 
-	public void setVidaMedia(String vidaMedia) {
+	public void setVidaMedia(Long vidaMedia) {
 		this.vidaMedia = vidaMedia;
 	}
-	
+
+	public Species getSpecie() {
+		return specie;
+	}
+
+	public void setSpecie(Species specie) {
+		this.specie = specie;
+	}
 	
 }
