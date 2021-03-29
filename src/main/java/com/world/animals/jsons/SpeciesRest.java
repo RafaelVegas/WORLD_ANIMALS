@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SpeciesRest {
 
-	@JsonProperty("nombre")
+	@JsonProperty("especie_nombre")
 	private String nombre;
 	
 	@JsonProperty("caracteristica")

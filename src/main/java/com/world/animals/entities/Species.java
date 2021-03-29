@@ -12,19 +12,19 @@ import javax.persistence.Table;
 public class Species {
 
 	@Id
-	@Column(name="NOMBRE")
+	@Column(name="ESPECIE_NOMBRE")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String nombre;
+	private String especieNombre;
 	
 	@Column(name="CARACTERISTICA")
 	private String caracteristica;
 
-	public String getNombre() {
-		return nombre;
+	public String getEspecieNombre() {
+		return especieNombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setEspecieNombre(String nombre) {
+		this.especieNombre = nombre;
 	}
 
 	public String getCaracteristica() {
