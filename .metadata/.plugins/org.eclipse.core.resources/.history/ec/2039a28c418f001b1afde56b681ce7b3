@@ -1,0 +1,14 @@
+package com.example.demo.services.impl;
+
+import com.example.demo.jsons.ContinenteRest;
+import com.example.demo.services.ContinenteService;
+
+public class ContinenteServiceImpl implements ContinenteService {
+
+	@Override
+	public ContinenteRest getContinenteById(Long idContinente) {
+		
+		return null;
+	}
+
+}

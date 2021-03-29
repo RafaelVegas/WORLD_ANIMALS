@@ -1,0 +1,27 @@
+package com.example.demo.services.impl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.entities.Continente;
+import com.example.demo.jsons.ContinenteRest;
+import com.example.demo.repositories.ContinenteRepository;
+import com.example.demo.services.ContinenteService;
+
+public class ContinenteServiceImpl implements ContinenteService {
+
+	@Autowired 
+	ContinenteRepository continenteRepository;
+	
+	public static final ModelMapper modelmapper = new ModelMapper();
+	
+	@Override
+	public ContinenteRest getContinenteById(Long idContinente) throws Exception{		
+		return modelmapper.map(findContinenteByID(idContinente), ContinenteRest.class);
+	}
+	
+	private Continente findContinenteByID(Long idContinente) {		
+		return continenteRepository.getContinenteById(idContinente).orElseThrow();
+	}
+
+}
