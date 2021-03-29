@@ -10,5 +10,5 @@ import com.world.animals.entities.Animal;
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Long>{
 
-	Optional<Animal> getAnimalById(Long idAnimal);
+	Optional<Animal> findByIdAnimal(Long idAnimal);
 }
