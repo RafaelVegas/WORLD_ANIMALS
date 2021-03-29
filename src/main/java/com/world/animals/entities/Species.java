@@ -11,20 +11,33 @@ import javax.persistence.Table;
 @Table(name="ESPECIE")
 public class Species {
 
+
 	@Id
-	@Column(name="ESPECIE_NOMBRE")
+	@Column(name="ID_ESPECIE")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String especieNombre;
+	private Long idEspecie;
+	
+	@Column(name="ESPECIE_NOMBRE")
+	private String especie_nombre;
 	
 	@Column(name="CARACTERISTICA")
 	private String caracteristica;
 
-	public String getEspecieNombre() {
-		return especieNombre;
+
+	public Long getIdEspecie() {
+		return idEspecie;
 	}
 
-	public void setEspecieNombre(String nombre) {
-		this.especieNombre = nombre;
+	public void setIdEspecie(Long idEspecie) {
+		this.idEspecie = idEspecie;
+	}
+
+	public String getEspecie_Nombre() {
+		return especie_nombre;
+	}
+
+	public void setEspecie_Nombre(String nombre) {
+		this.especie_nombre = nombre;
 	}
 
 	public String getCaracteristica() {

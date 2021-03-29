@@ -7,5 +7,5 @@ import com.world.animals.jsons.SpeciesRest;
 @Service
 public interface SpeciesService {
 
-	SpeciesRest  getSpecieByName(Integer nameSpecie);
+	SpeciesRest  getSpecieByName(Long idEspecie);
 }

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import com.world.animals.entities.Species;
 
 @Repository
-public interface SpeciesRepository extends JpaRepository<Species, Integer>{
+public interface SpeciesRepository extends JpaRepository<Species, Long>{
 
-	Optional<Species> findByIdEspecie(Integer especie_nombre);
+	Optional<Species> findByIdEspecie(Long idEspecie);
 	
 }

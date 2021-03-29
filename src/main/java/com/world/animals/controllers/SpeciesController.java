@@ -21,8 +21,8 @@ public class SpeciesController {
 	SpeciesServiceImpl speciesService;
 	
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "specie" + "/{" + "especie_nombre" + "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<SpeciesRest> getOneSpecie(@PathVariable Integer especie_nombre){
-		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",speciesService.getSpecieByName(especie_nombre));
+	@RequestMapping(value = "specie" + "/{" + "id_especie" + "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<SpeciesRest> getOneSpecie(@PathVariable Long id_especie){
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",speciesService.getSpecieByName(id_especie));
 	}
 }

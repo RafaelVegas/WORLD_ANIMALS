@@ -18,11 +18,11 @@ public class SpeciesServiceImpl implements SpeciesService {
 	public static final ModelMapper modelmapper = new ModelMapper();
 	
 	@Override
-	public SpeciesRest getSpecieByName(Integer especie_nombre) {
+	public SpeciesRest getSpecieByName(Long especie_nombre) {
 		return modelmapper.map(getSpecieForMapeo(especie_nombre),SpeciesRest.class);
 	}
 	
-	private Species getSpecieForMapeo(Integer especie_nombre) {
+	private Species getSpecieForMapeo(Long especie_nombre) {
 		return repository.findByIdEspecie(especie_nombre).orElseThrow();
 	}
 
