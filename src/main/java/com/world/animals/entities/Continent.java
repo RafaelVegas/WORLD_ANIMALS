@@ -1,10 +1,15 @@
 package com.world.animals.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,9 @@ public class Continent {
 
 	@Column(name = "ZONA")
 	private String zone;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "continent")
+	private List<Country> countries;
 
 	public Long getIdContinent() {
 		return idContinent;
@@ -44,6 +52,14 @@ public class Continent {
 
 	public void setZone(String zone) {
 		this.zone = zone;
+	}
+
+	public List<Country> getCountries() {
+		return countries;
+	}
+
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
 	}
 
 }
