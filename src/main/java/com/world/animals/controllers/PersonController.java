@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.world.animals.exceptions.WorldAnimalException;
 import com.world.animals.jsons.OnePersonRest;
 import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.PersonService;
@@ -22,7 +23,7 @@ public class PersonController {
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "search-person"+"/{"+"idPerson"+"}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<OnePersonRest> getPersonById(@PathVariable Long idPerson) {
+	public WorldAnimalsResponse<OnePersonRest> getPersonById(@PathVariable Long idPerson) throws WorldAnimalException {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK", personService.getPersonById(idPerson));
 	}
 }
