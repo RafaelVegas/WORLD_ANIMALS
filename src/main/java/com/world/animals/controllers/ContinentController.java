@@ -16,14 +16,24 @@ import com.world.animals.services.ContinentService;
 @RestController
 @RequestMapping(path = "/world-animal" + "/v1.0")
 public class ContinentController {
-	
+
 	@Autowired
 	ContinentService continentService;
-	
+
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "search-continent"+"/{"+"id continente"+"}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "search-continent" + "/{" + "id continente"
+			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public WorldAnimalsResponse<OneContinentRest> getContinentByID(Long idContinent) throws WorldAnimalException {
-		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK.value()), "OK",continentService.getContinentByID(idContinent));
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK.value()), "OK",
+				continentService.getContinentByID(idContinent));
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "search-continent-countries" + "/{" + "id continente"
+			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<OneContinentAndCountriesRest> getContinentAndCountries(Long idContinent) throws WorldAnimalException {
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK.value()), "OK",
+				continentService.getContinentAndCountries(idContinent));
 	}
 
 }
