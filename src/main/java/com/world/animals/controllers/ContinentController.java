@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.world.animals.exceptions.WorldAnimalException;
+import com.world.animals.jsons.OneContinentAndCountriesRest;
 import com.world.animals.jsons.OneContinentRest;
 import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.ContinentService;
