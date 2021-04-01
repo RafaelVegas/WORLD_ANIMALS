@@ -1,5 +1,7 @@
 package com.world.animals.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,9 +36,20 @@ public class Animal {
 	@Column(name="VIDA_MEDIA")
 	private Long vidaMedia;
 	
-	@JoinColumn(name = "ID_ESPECIE",nullable = false,unique = true,insertable = false, updatable = false)
+	@JoinColumn(name = "ID_ESPECIE",nullable = false,unique = true)
 	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)	
 	private Species specie;
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "animal")
+	private List<Breed> breeds;
+	
+	public List<Breed> getBreeds() {
+		return breeds;
+	}
+
+	public void setBreed(List<Breed> breeds) {
+		this.breeds = breeds;
+	}
 
 	public Long getIdAnimal() {
 		return idAnimal;

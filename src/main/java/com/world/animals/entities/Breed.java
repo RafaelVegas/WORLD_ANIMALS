@@ -1,10 +1,14 @@
 package com.world.animals.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -13,60 +17,72 @@ import javax.persistence.Table;
 public class Breed {
 	
 	@Id
-	@Column(name="IDRAZA")
+	@Column(name="ID_RAZA")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idRaza;
+	private Long idBreed;
 	
-	@Column(name="NOMBRE")
-	private String nombre;
+	@Column(name="RAZA_NOMBRE")
+	private String breedName;
 	
 	@Column(name="COLOR")
-	private String color;
+	private String colour;
 	
 	@Column(name="CARACTERISTICA")
-	private String caracteristica;
+	private String characteristic;
 	
-	@Column(name="PESO")
-	private String peso;
+	@Column(name="PESO_MEDIO")
+	private String middleWeight;
+	
+	@JoinColumn(name = "ID_ANIMAL")
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private Animal animal;
 
-	public Long getIdRaza() {
-		return idRaza;
+	public Long getIdBreed() {
+		return idBreed;
 	}
 
-	public void setIdRaza(Long idRaza) {
-		this.idRaza = idRaza;
+	public void setIdBreed(Long idBreed) {
+		this.idBreed = idBreed;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getBreedName() {
+		return breedName;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setBreedName(String breedName) {
+		this.breedName = breedName;
 	}
 
-	public String getColor() {
-		return color;
+	public String getColour() {
+		return colour;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
-	public String getCaracteristica() {
-		return caracteristica;
+	public String getCharacteristic() {
+		return characteristic;
 	}
 
-	public void setCaracteristica(String caracteristica) {
-		this.caracteristica = caracteristica;
+	public void setCharacteristic(String characteristic) {
+		this.characteristic = characteristic;
 	}
 
-	public String getPeso() {
-		return peso;
+	public String getMiddleWeight() {
+		return middleWeight;
 	}
 
-	public void setPeso(String peso) {
-		this.peso = peso;
-	}	
+	public void setMiddleWeight(String middleWeight) {
+		this.middleWeight = middleWeight;
+	}
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
+	}
 	
 }
