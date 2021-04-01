@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.world.animals.entities.Breed;
+import com.world.animals.entities.Country;
 
 @Repository
-public interface BreedRepository extends JpaRepository<Breed, Long> {
+public interface CountryRepository extends JpaRepository<Country, Long>{
 
-	Optional<Breed> findByIdBreed(Long id);
+	Optional<Country> findByIdCountry(Long idCountry);
 }

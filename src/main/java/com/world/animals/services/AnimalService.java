@@ -1,8 +1,18 @@
 package com.world.animals.services;
 
-import com.world.animals.jsons.OneAnimalRest;
+import java.util.Set;
+
+import com.world.animals.entities.Continent;
+import com.world.animals.exceptions.WorldAnimalException;
+import com.world.animals.jsons.AnimalRest;
+import com.world.animals.jsons.AnimalSpecieRest;
+import com.world.animals.jsons.AnimalsContinentRest;
 
 public interface AnimalService {
 
-	OneAnimalRest getAnimalById(Long id_animal);
+	AnimalRest getAnimalById(Long id_animal) throws WorldAnimalException;
+	
+	AnimalsContinentRest getAnimalsOfContinent(Set<Continent> rContinent) throws WorldAnimalException;
+	
+	AnimalSpecieRest getAnimalSpecieByIdAnimal(Long id) throws WorldAnimalException;
 }
