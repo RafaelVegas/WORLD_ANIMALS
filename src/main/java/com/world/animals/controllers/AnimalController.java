@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.world.animals.jsons.OneAnimalRest;
+import com.world.animals.exceptions.WorldAnimalException;
+import com.world.animals.jsons.AnimalRest;
+import com.world.animals.jsons.AnimalSpecieRest;
+import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.AnimalService;
 
 @RestController
@@ -17,10 +20,20 @@ public class AnimalController {
 
 	@Autowired
 	AnimalService animalService;
-	
+
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(path = "id" + "/{" + "idAnimal" + "}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public OneAnimalRest getOneAnimalById(Long id_animal) {
-		return animalService.getAnimalById(id_animal);
+	@RequestMapping(path = "search-animal" + "/{" + "idAnimal"
+			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<AnimalRest> getOneAnimalById(Long id_animal) throws WorldAnimalException {
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
+				animalService.getAnimalById(id_animal));
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "search-animal-specie-breeds" + "/{" + "idAnimal"
+			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<AnimalSpecieRest> getAnimalAndSpecie(Long id) throws WorldAnimalException {
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
+				animalService.getAnimalSpecieByIdAnimal(id));
 	}
 }
