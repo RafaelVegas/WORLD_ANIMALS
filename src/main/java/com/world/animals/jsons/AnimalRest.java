@@ -4,11 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class OneAnimalRest {
-
-	@JsonProperty("id Animal")
-	private Long idAnimal;
-
+public class AnimalRest {
 	@JsonProperty("nombre")
 	private String nombre;
 
@@ -20,14 +16,6 @@ public class OneAnimalRest {
 
 	@JsonProperty("vida media")
 	private Long vidaMedia;
-
-	public Long getIdAnimal() {
-		return idAnimal;
-	}
-
-	public void setIdAnimal(Long id_animal) {
-		this.idAnimal = id_animal;
-	}
 
 	public String getNombre() {
 		return nombre;
