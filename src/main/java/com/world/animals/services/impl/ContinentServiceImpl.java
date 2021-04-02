@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.world.animals.entities.Continent;
 import com.world.animals.exceptions.NotFoundException;
 import com.world.animals.exceptions.WorldAnimalException;
-import com.world.animals.jsons.OneContinentAndCountriesRest;
+import com.world.animals.jsons.ContinentAndCountriesRest;
 import com.world.animals.jsons.ContinentRest;
 import com.world.animals.repositories.ContinentRepository;
 import com.world.animals.services.ContinentService;
@@ -30,17 +30,17 @@ public class ContinentServiceImpl implements ContinentService {
 
 	private Continent getContinentForMap(Long idContinent) throws WorldAnimalException {
 		return continentRepository.findByIdContinent(idContinent).orElseThrow(
-				() -> new NotFoundException("NOT FOUND 404", "No se ha encomtrado continent con ID: " + idContinent));
+				() -> new NotFoundException("NOT FOUND 404", "continent not found, ID: " + idContinent));
 	}
 
 	// continent and its countries
-	public OneContinentAndCountriesRest getContinentAndCountries(Long idContinent) throws WorldAnimalException {
-		return modelmapper.map(getContinentAndCountriesForMap(idContinent), OneContinentAndCountriesRest.class);
+	public ContinentAndCountriesRest getContinentAndCountries(Long idContinent) throws WorldAnimalException {
+		return modelmapper.map(getContinentAndCountriesForMap(idContinent), ContinentAndCountriesRest.class);
 	}
 
 	private Continent getContinentAndCountriesForMap(Long idContinent) throws NotFoundException {
 		return continentRepository.findByIdContinent(idContinent).orElseThrow(
-				() -> new NotFoundException("NOT FOUND 404", "No se ha encomtrado continent con ID: " + idContinent));
+				() -> new NotFoundException("NOT FOUND 404", "continent not found, ID: " + idContinent));
 	}
 
 	// all continents in databases
