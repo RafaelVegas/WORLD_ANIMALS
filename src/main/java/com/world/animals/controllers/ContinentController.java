@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.world.animals.exceptions.WorldAnimalException;
-import com.world.animals.jsons.OneContinentAndCountriesRest;
+import com.world.animals.jsons.ContinentAndCountriesRest;
 import com.world.animals.jsons.ContinentRest;
 import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.ContinentService;
@@ -35,15 +35,15 @@ public class ContinentController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "search-continent-countries" + "/{" + "id continente"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<OneContinentAndCountriesRest> getContinentAndCountries(@PathVariable Long idContinent) throws WorldAnimalException {
+	public WorldAnimalsResponse<ContinentAndCountriesRest> getContinentAndCountries(@PathVariable Long idContinent) throws WorldAnimalException {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK.value()), "OK",
 				continentService.getContinentAndCountries(idContinent));
 	}
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "all-continents", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ContinentRest> getAllContinents() throws WorldAnimalException{
-		return continentService.getAllContinent();
+	public WorldAnimalsResponse<List<ContinentRest>> getAllContinents() throws WorldAnimalException{
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK", continentService.getAllContinent());
 	}
 
 }
