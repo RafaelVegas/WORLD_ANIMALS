@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AnimalSpecieRest {
+public class AnimalSpecieBreedRest {
 
 	@JsonProperty("animal")
 	private AnimalRest Animal;
@@ -15,7 +15,7 @@ public class AnimalSpecieRest {
 	private SpeciesRest specie;
 
 	@JsonProperty("raza animal")
-	private List<OneBreedRest> breeds;
+	private List<BreedRest> breeds;
 
 	public AnimalRest getAnimal() {
 		return Animal;
@@ -33,11 +33,11 @@ public class AnimalSpecieRest {
 		this.specie = specie;
 	}
 
-	public List<OneBreedRest> getBreeds() {
+	public List<BreedRest> getBreeds() {
 		return breeds;
 	}
 
-	public void setBreeds(List<OneBreedRest> breeds) {
+	public void setBreeds(List<BreedRest> breeds) {
 		this.breeds = breeds;
 	}
 
