@@ -1,15 +1,13 @@
 package com.world.animals.jsons;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class OneAnimalRest {
+public class CreateAnimalRest {
 
-	@JsonProperty("id Animal")
-	private Long idAnimal;
+	@JsonProperty("nombre especie")
+	private String specie;
 
-	@JsonProperty("nombre")
+	@JsonProperty("nombre animal")
 	private String nombre;
 
 	@JsonProperty("propiedad")
@@ -21,12 +19,12 @@ public class OneAnimalRest {
 	@JsonProperty("vida media")
 	private Long vidaMedia;
 
-	public Long getIdAnimal() {
-		return idAnimal;
+	public String getSpecie() {
+		return specie;
 	}
 
-	public void setIdAnimal(Long id_animal) {
-		this.idAnimal = id_animal;
+	public void setSpecie(String specie) {
+		this.specie = specie;
 	}
 
 	public String getNombre() {

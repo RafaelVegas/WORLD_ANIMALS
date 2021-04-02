@@ -7,25 +7,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SpeciesRest {
 
 	@JsonProperty("especie_nombre")
-	private String nombre;
-	
+	private String nameSpecie;
+
 	@JsonProperty("caracteristica")
-	private String caracteristica;
+	private String characteristic;
 
-	public String getNombre() {
-		return nombre;
+	public String getNameSpecie() {
+		return nameSpecie;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNameSpecie(String nameSpecie) {
+		this.nameSpecie = nameSpecie;
 	}
 
-	public String getCaracteristica() {
-		return caracteristica;
+	public String getCharacteristic() {
+		return characteristic;
 	}
 
-	public void setCaracteristica(String caracteristica) {
-		this.caracteristica = caracteristica;
+	public void setCharacteristic(String characteristic) {
+		this.characteristic = characteristic;
 	}
-	
+
 }
