@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.world.animals.jsons.OneBreedRest;
+import com.world.animals.jsons.BreedRest;
 import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.BreedService;
 
@@ -22,7 +22,7 @@ public class BreedController {
 
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "search-raza" + "/{" + "idRaza" + "}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<OneBreedRest> getBreedById(@PathVariable Long idRaza) throws Exception {
+	public WorldAnimalsResponse<BreedRest> getBreedById(@PathVariable Long idRaza) throws Exception {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK", breedService.getOneBreedById(idRaza));
 	}
 }
