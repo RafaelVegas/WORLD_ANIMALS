@@ -40,7 +40,7 @@ public class Animal {
 
 	@JoinColumn(name = "ID_ESPECIE", nullable = false, unique = true)
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Species specie;
+	private Specie specie;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animal")
 	private List<Breed> breeds;
@@ -98,11 +98,11 @@ public class Animal {
 		this.vidaMedia = vidaMedia;
 	}
 
-	public Species getSpecie() {
+	public Specie getSpecie() {
 		return specie;
 	}
 
-	public void setSpecie(Species specie) {
+	public void setSpecie(Specie specie) {
 		this.specie = specie;
 	}
 
