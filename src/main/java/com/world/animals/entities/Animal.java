@@ -42,7 +42,7 @@ public class Animal {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Specie specie;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animal")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "animal")
 	private List<Breed> breeds;
 
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST })

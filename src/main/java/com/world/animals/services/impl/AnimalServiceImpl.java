@@ -75,4 +75,17 @@ public class AnimalServiceImpl implements AnimalService {
 		return "Created correctly";
 	}
 
+	@Override
+	public String deleteAnimal(String animalNombre) throws WorldAnimalException {
+		final Animal animal = animalRepository.findByNombre(animalNombre.toUpperCase());
+		try {
+			animalRepository.deleteById(animal.getIdAnimal());
+		} catch (Exception e) {
+			LOGGER.error("Internal Server ERROR", e);
+			throw new InternalServerErrorException("ERROR " + String.valueOf(HttpStatus.OK),
+					"ERROR deleting entity Animal: " + animalNombre);
+		}
+		return "Deleted correctly";
+	}
+
 }
