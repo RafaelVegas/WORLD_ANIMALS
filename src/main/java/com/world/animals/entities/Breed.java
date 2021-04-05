@@ -1,6 +1,5 @@
 package com.world.animals.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +33,7 @@ public class Breed {
 	private String middleWeight;
 	
 	@JoinColumn(name = "ID_ANIMAL")
-	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Animal animal;
 
 	public Long getIdBreed() {

@@ -38,8 +38,8 @@ public class Animal {
 	@Column(name = "VIDA_MEDIA")
 	private Long vidaMedia;
 
-	@JoinColumn(name = "ID_ESPECIE", nullable = false, unique = true)
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ID_ESPECIE", nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Specie specie;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animal")

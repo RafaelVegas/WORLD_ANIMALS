@@ -2,7 +2,6 @@ package com.world.animals.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +26,7 @@ public class Specie {
 	@Column(name = "CARACTERISTICA")
 	private String characteristic;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "specie")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "specie")
 	private List<Animal> animal;
 
 	public Long getIdSpecie() {

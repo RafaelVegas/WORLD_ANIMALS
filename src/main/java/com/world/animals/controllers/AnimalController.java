@@ -37,4 +37,33 @@ public class AnimalController {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
 				animalService.getAnimalSpecieByIdAnimal(id));
 	}
+
+	// create a animal
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "create-animal", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<String> createOneAnimal(@RequestBody CreateAnimalRest animalRest)
+			throws WorldAnimalException {
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
+				animalService.createOneAnimal(animalRest));
+	}
+
+	// delete a animal
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "delete-animal" + "/{" + "nameAnimal"
+			+ "}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<String> deleteAnimalByName(@PathVariable String nameAnimal)
+			throws WorldAnimalException {
+		return new WorldAnimalsResponse<String>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
+				animalService.deleteAnimal(nameAnimal));
+	}
+	
+	
+	//modify animal
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value="update-animal",method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<String> setAnimal(){
+		return new WorldAnimalsResponse<>(null, null, null,"");
+	}
+	
+	
 }
