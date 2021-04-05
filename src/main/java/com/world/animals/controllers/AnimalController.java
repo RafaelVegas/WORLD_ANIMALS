@@ -18,7 +18,7 @@ import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.AnimalService;
 
 @RestController
-@RequestMapping(path = "/animals" + "/v1.0")
+@RequestMapping(path = "/world-animal" + "/v1.0")
 public class AnimalController {
 
 	@Autowired
@@ -35,7 +35,8 @@ public class AnimalController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "search-animal-specie-breeds" + "/{" + "idAnimal"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<AnimalSpecieBreedRest> getAnimalAndSpecie(Long id) throws WorldAnimalException {
+	public WorldAnimalsResponse<AnimalSpecieBreedRest> getAnimalAndSpecie(@PathVariable Long id)
+			throws WorldAnimalException {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
 				animalService.getAnimalSpecieByIdAnimal(id));
 	}
