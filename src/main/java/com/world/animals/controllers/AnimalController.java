@@ -18,7 +18,7 @@ import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.AnimalService;
 
 @RestController
-@RequestMapping(path = "/animals" + "/v1.0")
+@RequestMapping(path = "/world-animal" + "/v1.0")
 public class AnimalController {
 
 	@Autowired
