@@ -15,4 +15,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long>{
 	
 	@Query("SELECT ANI FROM Animal ANI WHERE ID_ANIMAL = ?1")
 	public Optional<Animal> getAnimalSpecieBreeds(Long idAnimal);
+
+	//SEARCH ANIMAL BY NAME
+	public Animal findByNombre(String nameAnimal);
 }
