@@ -9,4 +9,8 @@ public interface AnimalService {
 	AnimalRest getAnimalById(Long id_animal) throws WorldAnimalException;
 	
 	AnimalSpecieBreedRest getAnimalSpecieByIdAnimal(Long id) throws WorldAnimalException;
+	
+	String createOneAnimal(CreateAnimalRest animalRest) throws WorldAnimalException;
+
+	String deleteAnimal(String deleteAnimalRest) throws WorldAnimalException;
 }

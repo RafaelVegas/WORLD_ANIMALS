@@ -40,4 +40,40 @@ public class AnimalServiceImpl implements AnimalService {
 				.orElseThrow(() -> new NotFoundException("ERROR 404", "Animal not found, ID: " + idAnimal));
 	}
 
+	// create a animal
+	public String createOneAnimal(CreateAnimalRest animalRest) throws WorldAnimalException {
+		final Specie specie = specieRepository.findByNameSpecie(animalRest.getSpecie()).orElseThrow(
+				() -> new NotFoundException("ERROR 404", "Specie not found, nameSpecie: " + animalRest.getSpecie()));
+
+		final Animal animal = new Animal();
+		animal.setNombre(animalRest.getNombre());
+		animal.setPropiedad(animalRest.getPropiedad());
+		animal.setDomestico(animalRest.isDomestico());
+		animal.setVidaMedia(animalRest.getVidaMedia());
+		animal.setSpecie(specie);
+
+		try {
+			animalRepository.save(animal);
+		} catch (Exception e) {
+			LOGGER.error("Internal SERVER ERROR", e);
+			throw new InternalServerErrorException("ERROR " + String.valueOf(HttpStatus.OK),
+					"ERROR creating entity Animal: " + animalRest.getNombre());
+		}
+
+		return "Created correctly";
+	}
+
+	@Override
+	public String deleteAnimal(String animalNombre) throws WorldAnimalException {
+		final Animal animal = animalRepository.findByNombre(animalNombre.toUpperCase());
+		try {
+			animalRepository.deleteById(animal.getIdAnimal());
+		} catch (Exception e) {
+			LOGGER.error("Internal Server ERROR", e);
+			throw new InternalServerErrorException("ERROR " + String.valueOf(HttpStatus.OK),
+					"ERROR deleting entity Animal: " + animalNombre);
+		}
+		return "Deleted correctly";
+	}
+
 }
