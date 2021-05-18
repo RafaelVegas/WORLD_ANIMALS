@@ -16,7 +16,7 @@ import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.impl.SpecieServiceImpl;
 
 @RestController
-@RequestMapping(path = "/species-animals" + "v1")
+@RequestMapping(path = "/world-animals" + "/v1.0")
 public class SpecieController {
 
 	@Autowired
