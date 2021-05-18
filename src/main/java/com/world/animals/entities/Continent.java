@@ -12,6 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "CONTINENTE")
 public class Continent {
@@ -29,37 +34,5 @@ public class Continent {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "continent")
 	private List<Country> countries;
-
-	public Long getIdContinent() {
-		return idContinent;
-	}
-
-	public void setIdContinent(Long idContinent) {
-		this.idContinent = idContinent;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getZone() {
-		return zone;
-	}
-
-	public void setZone(String zone) {
-		this.zone = zone;
-	}
-
-	public List<Country> getCountries() {
-		return countries;
-	}
-
-	public void setCountries(List<Country> countries) {
-		this.countries = countries;
-	}
-
+	
 }

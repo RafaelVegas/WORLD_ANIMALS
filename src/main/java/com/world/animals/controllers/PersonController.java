@@ -15,7 +15,7 @@ import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.PersonService;
 
 @RestController
-@RequestMapping(path = "/world-animal" + "/v1.0")
+@RequestMapping(path = "/world-animals" + "/v1.0")
 public class PersonController {
 
 	@Autowired

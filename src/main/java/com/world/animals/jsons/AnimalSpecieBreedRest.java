@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AnimalSpecieBreedRest {
 
 	@JsonProperty("animal")
-	private AnimalRest Animal;
+	private AnimalAllRest Animal;
 
 	@JsonProperty("especie")
 	private SpeciesRest specie;
@@ -17,11 +17,11 @@ public class AnimalSpecieBreedRest {
 	@JsonProperty("raza animal")
 	private List<BreedRest> breeds;
 
-	public AnimalRest getAnimal() {
+	public AnimalAllRest getAnimal() {
 		return Animal;
 	}
 
-	public void setAnimal(AnimalRest animal) {
+	public void setAnimal(AnimalAllRest animal) {
 		Animal = animal;
 	}
 

@@ -14,6 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "PAIS")
 public class Country {
@@ -38,53 +43,5 @@ public class Country {
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "country")
 	private List<Person> persons;
-
-	public Long getIdCountry() {
-		return idCountry;
-	}
-
-	public void setIdCountry(Long idCountry) {
-		this.idCountry = idCountry;
-	}
-
-	public String getNameCountry() {
-		return nameCountry;
-	}
-
-	public void setNameCountry(String nameCountry) {
-		this.nameCountry = nameCountry;
-	}
-
-	public Long getNumberInhabitants() {
-		return numberInhabitants;
-	}
-
-	public void setNumberInhabitants(Long numberInhabitants) {
-		this.numberInhabitants = numberInhabitants;
-	}
-
-	public String getCapital() {
-		return capital;
-	}
-
-	public void setCapital(String capital) {
-		this.capital = capital;
-	}
-	
-	public Continent getContinent() {
-		return continent;
-	}
-
-	public void setContinent(Continent continent) {
-		this.continent = continent;
-	}
-
-	public List<Person> getPersons() {
-		return persons;
-	}
-
-	public void setPersons(List<Person> persons) {
-		this.persons = persons;
-	}
 
 }

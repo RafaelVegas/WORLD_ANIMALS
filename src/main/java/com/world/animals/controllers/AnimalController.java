@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.world.animals.exceptions.WorldAnimalException;
-import com.world.animals.jsons.AnimalRest;
+import com.world.animals.jsons.AnimalModifyRest;
+import com.world.animals.jsons.AnimalAllRest;
 import com.world.animals.jsons.AnimalSpecieBreedRest;
 import com.world.animals.jsons.CreateAnimalRest;
 import com.world.animals.responses.WorldAnimalsResponse;
 import com.world.animals.services.AnimalService;
 
 @RestController
-@RequestMapping(path = "/world-animal" + "/v1.0")
+@RequestMapping(path = "/world-animals" + "/v1.0")
 public class AnimalController {
 
 	@Autowired
@@ -27,7 +28,7 @@ public class AnimalController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(path = "search-animal" + "/{" + "idAnimal"
 			+ "}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public WorldAnimalsResponse<AnimalRest> getOneAnimalById(@PathVariable Long id_animal) throws WorldAnimalException {
+	public WorldAnimalsResponse<AnimalAllRest> getOneAnimalById(@PathVariable Long id_animal) throws WorldAnimalException {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
 				animalService.getAnimalById(id_animal));
 	}
@@ -43,7 +44,7 @@ public class AnimalController {
 
 	// create a animal
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "create-animal", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "create-animal", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	public WorldAnimalsResponse<String> createOneAnimal(@RequestBody CreateAnimalRest animalRest)
 			throws WorldAnimalException {
 		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
@@ -59,4 +60,14 @@ public class AnimalController {
 		return new WorldAnimalsResponse<String>("SUCESS", String.valueOf(HttpStatus.OK), "OK",
 				animalService.deleteAnimal(nameAnimal));
 	}
+	
+	
+	//modify animal
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value="update-animal",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+	public WorldAnimalsResponse<String> setAnimal(@RequestBody AnimalModifyRest modifyAnimal) throws WorldAnimalException{
+		return new WorldAnimalsResponse<>("SUCESS", String.valueOf(HttpStatus.OK), "OK", animalService.modifyAnimal(modifyAnimal));
+	}
+	
+	
 }

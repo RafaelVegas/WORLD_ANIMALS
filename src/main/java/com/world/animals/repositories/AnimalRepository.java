@@ -20,4 +20,5 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
 	//SEARCH ANIMAL BY NAME
 	public Animal findByNombre(String nameAnimal);
+	
 }
