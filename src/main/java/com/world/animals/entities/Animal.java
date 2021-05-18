@@ -17,6 +17,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "ANIMAL")
 public class Animal {
@@ -46,76 +51,8 @@ public class Animal {
 	private List<Breed> breeds;
 
 	@ManyToMany(cascade = { CascadeType.MERGE, CascadeType.PERSIST })
-	@JoinTable(name = "CONTINENTE_ANIMAL", joinColumns = { @JoinColumn(name = "ID_ANIMAL") }, inverseJoinColumns = {
-			@JoinColumn(name = "CONTINENTE_ID_CONTINENTE") })
+	@JoinTable(name = "CONTINENTE_ANIMAL", joinColumns =  @JoinColumn(name = "ID_ANIMAL") , inverseJoinColumns = 
+			@JoinColumn(name = "CONTINENTE_ID_CONTINENTE") )
 	private Set<Continent> rContinent;
-
-	public List<Breed> getBreeds() {
-		return breeds;
-	}
-
-	public void setBreed(List<Breed> breeds) {
-		this.breeds = breeds;
-	}
-
-	public Long getIdAnimal() {
-		return idAnimal;
-	}
-
-	public void setIdAnimal(Long idAnimal) {
-		this.idAnimal = idAnimal;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getPropiedad() {
-		return propiedad;
-	}
-
-	public void setPropiedad(String propiedad) {
-		this.propiedad = propiedad;
-	}
-
-	public boolean isDomestico() {
-		return domestico;
-	}
-
-	public void setDomestico(boolean domestico) {
-		this.domestico = domestico;
-	}
-
-	public Long getVidaMedia() {
-		return vidaMedia;
-	}
-
-	public void setVidaMedia(Long vidaMedia) {
-		this.vidaMedia = vidaMedia;
-	}
-
-	public Specie getSpecie() {
-		return specie;
-	}
-
-	public void setSpecie(Specie specie) {
-		this.specie = specie;
-	}
-
-	public Set<Continent> getrContinent() {
-		return rContinent;
-	}
-
-	public void setrContinent(Set<Continent> rContinent) {
-		this.rContinent = rContinent;
-	}
-
-	public void setBreeds(List<Breed> breeds) {
-		this.breeds = breeds;
-	}
 
 }
