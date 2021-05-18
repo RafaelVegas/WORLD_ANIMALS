@@ -1,5 +1,7 @@
 package com.world.animals.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,17 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 @Table(name="RAZA")
-public class Breed {
+public class Breed implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@Column(name="ID_RAZA")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idBreed;
 	
-	@Column(name="RAZA_NOMBRE")
+	@Column(name="NOMBRE")
 	private String breedName;
 	
 	@Column(name="COLOR")
@@ -36,52 +44,4 @@ public class Breed {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Animal animal;
 
-	public Long getIdBreed() {
-		return idBreed;
-	}
-
-	public void setIdBreed(Long idBreed) {
-		this.idBreed = idBreed;
-	}
-
-	public String getBreedName() {
-		return breedName;
-	}
-
-	public void setBreedName(String breedName) {
-		this.breedName = breedName;
-	}
-
-	public String getColour() {
-		return colour;
-	}
-
-	public void setColour(String colour) {
-		this.colour = colour;
-	}
-
-	public String getCharacteristic() {
-		return characteristic;
-	}
-
-	public void setCharacteristic(String characteristic) {
-		this.characteristic = characteristic;
-	}
-
-	public String getMiddleWeight() {
-		return middleWeight;
-	}
-
-	public void setMiddleWeight(String middleWeight) {
-		this.middleWeight = middleWeight;
-	}
-
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
 }
